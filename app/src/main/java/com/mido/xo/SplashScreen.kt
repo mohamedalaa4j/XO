@@ -1,4 +1,4 @@
-package com.mido.tictactoy
+package com.mido.xo
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

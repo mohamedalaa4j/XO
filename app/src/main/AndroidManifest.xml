@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mido.tictactoy">
+    package="com.mido.xo">
 
     <application
         android:allowBackup="true"
@@ -10,21 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicTacToy">
         <activity
-            android:name=".MainActivity2"
+            android:name="com.mido.xo.MainActivity2"
             android:exported="true" />
         <activity
-            android:name=".StartActivity"
+            android:name="com.mido.xo.StartActivity"
             android:exported="true"
             android:theme="@style/Theme.TicTacToyN" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.mido.xo.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".SecondActivity"
+            android:name="com.mido.xo.SecondActivity"
             android:exported="true"
             android:theme="@style/Theme.TicTacToyN" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.mido.xo.SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.TicTacToyN">
             <intent-filter>

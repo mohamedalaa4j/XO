@@ -1,4 +1,4 @@
-package com.mido.tictactoy
+package com.mido.xo
 
 import org.junit.Test
 

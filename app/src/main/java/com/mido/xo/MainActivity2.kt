@@ -1,4 +1,4 @@
-package com.mido.tictactoy
+package com.mido.xo
 
 import android.app.Dialog
 import android.content.Intent
@@ -18,17 +18,17 @@ import kotlin.collections.ArrayList
 
 class MainActivity2 : AppCompatActivity() {
 
-    lateinit var play_one_name: String
-    lateinit var play_two_name: String
-    var winner : Int = 0
+    private lateinit var playerOneName: String
+    private lateinit var playerTwoName: String
+    private var winner : Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        play_one_name = intent.getStringExtra("player one name").toString()
-        play_two_name = intent.getStringExtra("player two name").toString()
+        playerOneName = intent.getStringExtra("player one name").toString()
+        playerTwoName = intent.getStringExtra("player two name").toString()
 
         tvPlayerOne.text = "You"
         tvPlayerTwo.text = ""
@@ -38,10 +38,10 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     fun buSelect(view: View) {
-        val buChoise = view as Button
+        val buChoice = view as Button
         var cellId = 0
 
-        when (buChoise.id) {
+        when (buChoice.id) {
             R.id.bu1 -> cellId = 1
             R.id.bu2 -> cellId = 2
             R.id.bu3 -> cellId = 3
@@ -53,11 +53,11 @@ class MainActivity2 : AppCompatActivity() {
             R.id.bu9 -> cellId = 9
         }
         Log.d("cellId ", cellId.toString())
-        playGame(cellId, buChoise)
+        playGame(cellId, buChoice)
         buAgain.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
-            intent.putExtra("player one name", play_one_name)
-            intent.putExtra("player two name", play_two_name)
+            intent.putExtra("player one name", playerOneName)
+            intent.putExtra("player two name", playerTwoName)
             startActivity(intent)
 
 
@@ -65,15 +65,15 @@ class MainActivity2 : AppCompatActivity() {
 
 
     }
-    var player1 = ArrayList<Int>()
-    var player2 = ArrayList<Int>()
-    var activePlayer = 1
+    private var player1 = ArrayList<Int>()
+    private var player2 = ArrayList<Int>()
+    private var activePlayer = 1
 
-    fun playGame(cellId: Int, buChoise: Button) {
+    private fun playGame(cellId: Int, buChoice: Button) {
 
         if (activePlayer == 1) {
-            buChoise.text = "X"
-            buChoise.setBackgroundResource(R.color.blue)
+            buChoice.text = "X"
+            buChoice.setBackgroundResource(R.color.blue)
             player1.add(cellId)
             activePlayer = 2
 
@@ -85,12 +85,12 @@ class MainActivity2 : AppCompatActivity() {
 
 
         } else {
-            buChoise.text = "O"
-            buChoise.setBackgroundResource(R.color.red)
+            buChoice.text = "O"
+            buChoice.setBackgroundResource(R.color.red)
             player2.add(cellId)
             activePlayer = 1
         }
-        buChoise.isEnabled = false
+        buChoice.isEnabled = false
 
         if (activePlayer == 1){
             tvPlayerOne.setTypeface(null, Typeface.BOLD)
@@ -105,7 +105,7 @@ class MainActivity2 : AppCompatActivity() {
         checkWinner()
     }
 
-    fun checkWinner() {
+    private fun checkWinner() {
          winner = 0
 
 
@@ -200,15 +200,7 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         if (
-            bu1.isEnabled == false &&
-            bu2.isEnabled == false &&
-            bu3.isEnabled == false &&
-            bu4.isEnabled == false &&
-            bu5.isEnabled == false &&
-            bu6.isEnabled == false &&
-            bu7.isEnabled == false &&
-            bu8.isEnabled == false &&
-            bu9.isEnabled == false
+            !bu1.isEnabled && !bu2.isEnabled && !bu3.isEnabled && !bu4.isEnabled && !bu5.isEnabled && !bu6.isEnabled && !bu7.isEnabled && !bu8.isEnabled && !bu9.isEnabled
 
         )
         {
@@ -222,7 +214,7 @@ class MainActivity2 : AppCompatActivity() {
 
 
     }
-    fun customDialogFunction(){
+    private fun customDialogFunction(){
 
         val customDialog = Dialog(this)
 
@@ -244,7 +236,7 @@ class MainActivity2 : AppCompatActivity() {
 
     }
 
-    fun autoPlay(){
+    private fun autoPlay(){
         val emptyCells = ArrayList<Int>()
 
         for (cellId in 1..9){
@@ -256,7 +248,7 @@ class MainActivity2 : AppCompatActivity() {
         val r = Random()
         val randIndex = r.nextInt(emptyCells.size-0)+0
         val cellId = emptyCells[randIndex]
-        var buSelect:Button? = null
+        val buSelect: Button?
         when(cellId) {
             1 -> buSelect = bu1
             2 -> buSelect = bu2

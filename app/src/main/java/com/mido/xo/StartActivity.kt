@@ -1,4 +1,4 @@
-package com.mido.tictactoy
+package com.mido.xo
 
 import android.app.Dialog
 import android.content.Intent
@@ -26,7 +26,7 @@ class StartActivity : AppCompatActivity() {
         }
     }
 
-    fun customDialogFunction(){
+    private fun customDialogFunction(){
 
         val customDialog = Dialog(this)
 

@@ -1,4 +1,4 @@
-package com.mido.tictactoy
+package com.mido.xo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

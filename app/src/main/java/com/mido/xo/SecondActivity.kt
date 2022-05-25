@@ -1,4 +1,4 @@
-package com.mido.tictactoy
+package com.mido.xo
 
 import android.content.Context
 import android.content.Intent
@@ -35,7 +35,7 @@ class SecondActivity : AppCompatActivity() {
     }
 
     fun hideKeyboard(view: View){
-        var inputMethodManager : InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager : InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
 
     }
