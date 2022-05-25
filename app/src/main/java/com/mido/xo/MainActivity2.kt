@@ -36,6 +36,7 @@ class MainActivity2 : AppCompatActivity() {
 
         buExit.setOnClickListener { customDialogFunction() }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     fun buSelect(view: View) {
         val buChoice = view as Button
@@ -236,20 +237,25 @@ class MainActivity2 : AppCompatActivity() {
 
     }
 
-    private fun autoPlay(){
+    private fun autoPlay() {
         val emptyCells = ArrayList<Int>()
 
-        for (cellId in 1..9){
-            if (!(player1.contains(cellId) || player2.contains(cellId))){
+        for (cellId in 1..9) {
+            if (!(player1.contains(cellId) || player2.contains(cellId))) {
                 emptyCells.add(cellId)
             }
         }
+        if (!emptyCells.isNullOrEmpty()) {
 
-        val r = Random()
-        val randIndex = r.nextInt(emptyCells.size-0)+0
+
+        var r = Random()
+
+
+          val randIndex = r.nextInt(emptyCells.size-0)+0
+
         val cellId = emptyCells[randIndex]
         val buSelect: Button?
-        when(cellId) {
+        when (cellId) {
             1 -> buSelect = bu1
             2 -> buSelect = bu2
             3 -> buSelect = bu3
@@ -259,15 +265,17 @@ class MainActivity2 : AppCompatActivity() {
             7 -> buSelect = bu7
             8 -> buSelect = bu8
             9 -> buSelect = bu9
-            else->{ buSelect = bu1
+            else -> {
+                buSelect = bu1
             }
         }
 
-        if (winner !=1 && winner !=2) {
+        if (winner != 1 && winner != 2 && tvWinner.text != "Draw!") {
 
             playGame(cellId, buSelect)
 
         }
+    }
 
     }
 
